@@ -20,7 +20,6 @@ public class emailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_email);
         mail = findViewById(R.id.email_fill);
 
-        final Intent passwordintent = getIntent();//能得到姓名資料
         final Intent emailintent = getIntent();//能得到密碼資料
 
         final Button endbutton = findViewById(R.id.goback);
@@ -29,7 +28,7 @@ public class emailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent MainActivityintent = new Intent(emailActivity.this,MainActivity.class);
                 MainActivityintent
-                        .putExtra("user",passwordintent.getStringExtra("user"))
+                        .putExtra("user",emailintent.getStringExtra("user"))
                         .putExtra("password",emailintent.getStringExtra("password"))
                         .putExtra("email",mail.getText().toString());
 
