@@ -21,38 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="姓名"
-        app:layout_constraintBottom_toBottomOf="@+id/username"
-        app:layout_constraintEnd_toStartOf="@+id/username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/username" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="密碼"
-        app:layout_constraintBottom_toBottomOf="@+id/password"
-        app:layout_constraintEnd_toStartOf="@+id/password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/password" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail"
-        app:layout_constraintBottom_toBottomOf="@+id/email"
-        app:layout_constraintEnd_toStartOf="@+id/email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/email" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/into"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

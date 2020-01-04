@@ -3,38 +3,34 @@ package com.example.register;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class UsernameActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_PASSWORD =100 ;
     private EditText user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = findViewById(R.id.username_fill);
         setContentView(R.layout.activity_username);
-        Intent usernameintent = getIntent();
-        Button goPasswordbutton = findViewById(R.id.button2);
+        user = findViewById(R.id.username_fill);
+//        final Intent usernameintent = getIntent();
+//        setResult(RESULT_OK);
+        Button goPasswordbutton = findViewById(R.id.gopassword);
         goPasswordbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent passwordintent =new Intent(UsernameActivity.this,PasswordActivity.class);
-
+                passwordintent.putExtra("user",user.getText().toString());
                 startActivity(passwordintent);
-                setResult(RESULT_OK);
-                String name = user.getText().toString();
-                SharedPreferences pref = getSharedPreferences("test1", MODE_PRIVATE);
-                pref.edit()
-                        .putString("USER", name)
-                        .commit();
             }
         });
-
 
     }
 }

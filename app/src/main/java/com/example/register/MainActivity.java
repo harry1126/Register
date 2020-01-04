@@ -1,28 +1,23 @@
 package com.example.register;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import static android.os.Build.VERSION_CODES.M;
-
 public class MainActivity extends AppCompatActivity {
 
 
+    private static final int REQUEST_CODE_USERNAMEACTIVITY = 110;
     private TextView username;
     private TextView password;
     private TextView email;
-    private int REQUEST_CODE =110;
-
-
-
+    public Intent usernameintent;
+    private float DEFULT=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,31 +27,29 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         email = findViewById(R.id.email);
 
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.into);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent usernameintent = new Intent(MainActivity.this,UsernameActivity.class);
-                startActivityForResult(usernameintent,REQUEST_CODE);
+                usernameintent = new Intent(MainActivity.this,UsernameActivity.class);
+                startActivityForResult(usernameintent,REQUEST_CODE_USERNAMEACTIVITY);
             }
         });
-
+        Log.d("MainActivity","");
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Intent endintent = getIntent();
-        if( requestCode == REQUEST_CODE) {
-            if (resultCode != RESULT_OK) {
-                finish();
-            } else {
-                String userid = getSharedPreferences("test1", MODE_PRIVATE)
-                        .getString("USER", "");
-                String passid = getSharedPreferences("test2", MODE_PRIVATE)
-                        .getString("Pass", "");
-                String emailid = getSharedPreferences("test3", MODE_PRIVATE)
-                        .getString("Email", " ");
-            }
-        }
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String name = intent.getStringExtra("user");
+        String passid = intent.getStringExtra("password");
+        String emailid =intent.getStringExtra("email");
+        username.setText(name+"");
+        password.setText(passid+"");
+        email.setText(emailid+"");
+        Log.d("MainActivity","a:"+emailid);
+
     }
+
+
 }
+
