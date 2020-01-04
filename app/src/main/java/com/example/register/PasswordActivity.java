@@ -20,13 +20,15 @@ public class PasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_password);
         pass = findViewById(R.id.password_fill);
         final Intent passwordintent = getIntent();
+
 //        setResult(RESULT_OK);
         Button goEmailbutton = findViewById(R.id.goemail);
         goEmailbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent emailintent = new Intent(PasswordActivity.this, emailActivity.class);
-                emailintent.putExtra("password",pass.getText().toString());
+                emailintent.putExtra("password",pass.getText().toString())
+                        .putExtra("user",passwordintent.getStringExtra("user"));
                 startActivity(emailintent);
                 Log.d("PasswordActivity","c:");
             }

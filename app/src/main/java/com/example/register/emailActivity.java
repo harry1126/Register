@@ -33,9 +33,10 @@ public class emailActivity extends AppCompatActivity {
                 MainActivityintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 setResult(RESULT_OK,emailintent);
                 startActivity(MainActivityintent);
-                Log.d("emailActivity","d:"+mail.getText().toString());
-                Log.d("emailActivity","d:"+passwordintent.getStringExtra("user"));
+
+                Log.d("emailActivity","d:"+emailintent.getStringExtra("user"));
                 Log.d("emailActivity","d:"+emailintent.getStringExtra("password"));
+                Log.d("emailActivity","d:"+mail.getText().toString());
             }
         });
 
