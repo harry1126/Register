@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 public class UsernameActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_PASSWORD =100 ;
     private EditText user;
 
     @Override
@@ -20,8 +19,6 @@ public class UsernameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_username);
         user = findViewById(R.id.username_fill);
-//        final Intent usernameintent = getIntent();
-//        setResult(RESULT_OK);
         Button goPasswordbutton = findViewById(R.id.gopassword);
         goPasswordbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +28,5 @@ public class UsernameActivity extends AppCompatActivity {
                 startActivity(passwordintent);
             }
         });
-
     }
 }

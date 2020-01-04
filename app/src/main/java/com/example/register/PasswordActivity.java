@@ -19,7 +19,8 @@ public class PasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
         pass = findViewById(R.id.password_fill);
-        final Intent passwordintent = getIntent();
+        
+        final Intent passwordintent = getIntent();//得到姓名資料
 
 //        setResult(RESULT_OK);
         Button goEmailbutton = findViewById(R.id.goemail);
@@ -27,10 +28,11 @@ public class PasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent emailintent = new Intent(PasswordActivity.this, emailActivity.class);
-                emailintent.putExtra("password",pass.getText().toString())
-                        .putExtra("user",passwordintent.getStringExtra("user"));
+                emailintent
+                        .putExtra("user",passwordintent.getStringExtra("user"))
+                        .putExtra("password",pass.getText().toString());
+
                 startActivity(emailintent);
-                Log.d("PasswordActivity","c:");
             }
         });
 

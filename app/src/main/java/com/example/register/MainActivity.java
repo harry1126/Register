@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView password;
     private TextView email;
     public Intent usernameintent;
-    private float DEFULT=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 usernameintent = new Intent(MainActivity.this,UsernameActivity.class);
-                startActivityForResult(usernameintent,REQUEST_CODE_USERNAMEACTIVITY);
+                startActivity(usernameintent);
             }
         });
-        Log.d("MainActivity","");
     }
     @Override
     protected void onNewIntent(Intent intent) {
@@ -43,11 +41,9 @@ public class MainActivity extends AppCompatActivity {
         String name = intent.getStringExtra("user");
         String passid = intent.getStringExtra("password");
         String emailid =intent.getStringExtra("email");
-        username.setText(name+"");
-        password.setText(passid+"");
-        email.setText(emailid+"");
-        Log.d("MainActivity","a:"+emailid);
-
+        username.setText(name);
+        password.setText(passid);
+        email.setText(emailid);
     }
 
 
